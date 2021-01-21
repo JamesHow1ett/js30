@@ -1,3 +1,4 @@
+const clearBtn = document.getElementById('clear');
 const canvas = document.getElementById('draw');
 const ctx = canvas.getContext('2d');
 
@@ -33,6 +34,8 @@ const draw = (event) => {
 
 }
 
+const clear = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 canvas.addEventListener('mousedown', (event) => {
   isDrawing = true;
   [lastX, lastY] = [event.offsetX, event.offsetY];
@@ -41,3 +44,4 @@ canvas.addEventListener('mousedown', (event) => {
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => isDrawing = false);
 canvas.addEventListener('mouseout', () => isDrawing = false);
+clearBtn.addEventListener('click', clear);
